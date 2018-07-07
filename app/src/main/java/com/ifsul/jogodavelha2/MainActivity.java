@@ -1,6 +1,7 @@
 package com.ifsul.jogodavelha2;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //verifica se o jogador ganhou
         if (checkWinner(PLAYER_SYMBOL)) {
+            enableAllButtons(false);
+            Snackbar.make(findViewById(R.id.root_parent_layout),
+                   R.string.jogador_ganhou , Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -94,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // verifica se o Jarvis ganhou
         if (checkWinner(JARVIS_SYMBOL)) {
+            enableAllButtons(false);
             return;
         }
 

@@ -3,4 +3,5 @@
     <string name="jogos">Jogos:</string>
     <string name="derrotas">Derrotas:</string>
     <string name="vitorias">Vitorias:</string>
+    <string name="jogador_ganhou">Você ganhou o jogo</string>
 </resources>
