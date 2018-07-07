@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Jogo da velha 2</string>
-    <string name="jogos">Jogos:</string>
-    <string name="derrotas">Derrotas:</string>
-    <string name="vitorias">Vitorias:</string>
-    <string name="jogador_ganhou">Você ganhou o jogo</string>
-    <string name="Jarvis_ganhou">Jarvis ganhou o jogo</string>
-    <string name="velha">Deu velha</string>
-    <string name="jarvis_comeca">Jarvis começa jogando</string>
-    <string name="voce_comeca">Você começa jogando</string>
-    <string name="jogadas">Jogadas:</string>
-    <string name="empates">empates:</string>
+    <string name="app_name">Tic Tac Toe 2</string>
+    <string name="jogos">Games:</string>
+    <string name="derrotas">Defeats:</string>
+    <string name="vitorias">Victories:</string>
+    <string name="jogador_ganhou">You won the game</string>
+    <string name="Jarvis_ganhou">Jarvis won the game</string>
+    <string name="velha">the game tied</string>
+    <string name="jarvis_comeca">Jarvis starts playing</string>
+    <string name="voce_comeca">You\'ll start playing</string>
+    <string name="jogadas">moves:</string>
+    <string name="empates">draws:</string>
 </resources>
