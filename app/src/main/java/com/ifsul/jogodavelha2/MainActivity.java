@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Random;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "DEBUG";
     private static final String PLAYER_SYMBOL = "X";
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        //set rest listener
+        //set reset listener
         (findViewById(R.id.button_reset)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,18 +52,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * seta o simbolo passado como texto do botão passado
-     * @param button        Botao a ser setado
-     * @param symbol        simbolo a ser setado
+     *
+     * @param button Botao a ser setado
+     * @param symbol simbolo a ser setado
      */
-    private void setButton(Button button, String symbol){
+    private void setButton(Button button, String symbol) {
         button.setText(symbol);
         button.setEnabled(false);
     }
 
     @Override
     public void onClick(View view) {
-        //jogador
+        // jogador
         setButton((Button) view, PLAYER_SYMBOL);
+
+        //verifica se o jogador ganhou
+        if (checkWinner(PLAYER_SYMBOL)) {
+            return;
+        }
 
 
         //jarvis
@@ -80,99 +84,124 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        // verifica se o Jarvis ganhou
+        if (checkWinner(JARVIS_SYMBOL)) {
+            return;
+        }
+
+    }
+
+    private boolean checkWinner(String symbol) {
+        // verificação de vencedor
+
+        for (int i = 0; i < 3; i++) {
+            // verificação das linhas
+            if (campoEquals(campos[i][0], symbol) && campoEquals(campos[i][1], symbol) &&
+                    campoEquals(campos[i][2], symbol)) return true;
+            // verificação das colunas
+            if (campoEquals(campos[0][i], symbol) && campoEquals(campos[1][i], symbol) &&
+                    campoEquals(campos[2][i], symbol)) return true;
+
+
+        }
+
+        // verificação das diagonais
+        if (campoEquals(campos[0][0], symbol) && campoEquals(campos[1][1], symbol) &&
+                campoEquals(campos[2][2], symbol)) return true;
+
+        if (campoEquals(campos[0][2], symbol) && campoEquals(campos[1][1], symbol) &&
+                campoEquals(campos[2][0], symbol)) return true;
+
+
+        return false;
     }
 
     /**
-     *
-     * @return              Objeto MoveIndexes com o melhor movimento de ataque
+     * @return Objeto MoveIndexes com o melhor movimento de ataque
      */
     private MoveIndexes bestAttackMove() {
         return bestMove(JARVIS_SYMBOL);
     }
 
     /**
-     *
-     * @return              Objeto MoveIndexes com o melhor movimento de defesa
+     * @return Objeto MoveIndexes com o melhor movimento de defesa
      */
     private MoveIndexes bestDefenseMove() {
         return bestMove(PLAYER_SYMBOL);
     }
 
     /**
-     *
-     * @param symbol        simbolo
-     * @return              melhor movimento de a se fazer levando em consideração somente o simbolo que foi
+     * @param symbol simbolo
+     * @return melhor movimento de a se fazer levando em consideração somente o simbolo que foi
      * passado
      */
     private MoveIndexes bestMove(String symbol) {
-        //TODO verificar onde há campos que são os ultimos para fechar uma linha
+        // verificar onde há campos que são os ultimos para fechar uma linha
 
         //verificar linhas
         for (int i = 0; i < 3; i++) {
 
             if (campoEquals(campos[i][0], symbol) && campoEquals(campos[i][1], symbol) &&
-                    !campoIsSet(campos[i][2])) return new MoveIndexes(i,2);
+                    !campoIsSet(campos[i][2])) return new MoveIndexes(i, 2);
 
             if (campoEquals(campos[i][0], symbol) && campoEquals(campos[i][2], symbol) &&
-                    !campoIsSet(campos[i][1])) return new MoveIndexes(i,1);
+                    !campoIsSet(campos[i][1])) return new MoveIndexes(i, 1);
 
             if (campoEquals(campos[i][1], symbol) && campoEquals(campos[i][2], symbol) &&
-                    !campoIsSet(campos[i][0])) return new MoveIndexes(i,0);
+                    !campoIsSet(campos[i][0])) return new MoveIndexes(i, 0);
 
         }
         // verificar colunas
         for (int i = 0; i < 3; i++) {
 
             if (campoEquals(campos[0][i], symbol) && campoEquals(campos[1][i], symbol) &&
-                    !campoIsSet(campos[2][i])) return new MoveIndexes(2,i);
+                    !campoIsSet(campos[2][i])) return new MoveIndexes(2, i);
 
             if (campoEquals(campos[0][i], symbol) && campoEquals(campos[2][i], symbol) &&
-                    !campoIsSet(campos[1][i])) return new MoveIndexes(1,i);
+                    !campoIsSet(campos[1][i])) return new MoveIndexes(1, i);
 
             if (campoEquals(campos[1][i], symbol) && campoEquals(campos[2][i], symbol) &&
-                    !campoIsSet(campos[0][i])) return new MoveIndexes(0,i);
+                    !campoIsSet(campos[0][i])) return new MoveIndexes(0, i);
         }
 
         // verificar diagonais
         if (campoEquals(campos[0][0], symbol) && campoEquals(campos[1][1], symbol) &&
-                !campoIsSet(campos[2][2])) return new MoveIndexes(2,2);
+                !campoIsSet(campos[2][2])) return new MoveIndexes(2, 2);
 
         if (campoEquals(campos[0][0], symbol) && campoEquals(campos[2][2], symbol) &&
-                !campoIsSet(campos[1][1])) return new MoveIndexes(1,1);
+                !campoIsSet(campos[1][1])) return new MoveIndexes(1, 1);
 
         if (campoEquals(campos[1][1], symbol) && campoEquals(campos[2][2], symbol) &&
-                !campoIsSet(campos[0][0])) return new MoveIndexes(0,0);
+                !campoIsSet(campos[0][0])) return new MoveIndexes(0, 0);
 
 
         if (campoEquals(campos[0][2], symbol) && campoEquals(campos[1][1], symbol) &&
-                !campoIsSet(campos[2][0])) return new MoveIndexes(2,0);
+                !campoIsSet(campos[2][0])) return new MoveIndexes(2, 0);
 
         if (campoEquals(campos[0][2], symbol) && campoEquals(campos[2][0], symbol) &&
-                !campoIsSet(campos[1][1])) return new MoveIndexes(1,1);
+                !campoIsSet(campos[1][1])) return new MoveIndexes(1, 1);
 
         if (campoEquals(campos[2][0], symbol) && campoEquals(campos[1][1], symbol) &&
-                !campoIsSet(campos[0][2])) return new MoveIndexes(0,2);
+                !campoIsSet(campos[0][2])) return new MoveIndexes(0, 2);
 
 
         return new MoveIndexes(-1, -1);
     }
 
     /**
-     *
-     * @param button        botao a ser verificado
-     * @param symbol        simbolo a ser verificado
-     * @return              true caso o o botão passado esteja marcado com o simbolo passado
+     * @param button botao a ser verificado
+     * @param symbol simbolo a ser verificado
+     * @return true caso o o botão passado esteja marcado com o simbolo passado
      */
     private boolean campoEquals(Button button, String symbol) {
         return button.getText().toString().equals(symbol);
     }
 
     /**
-     *
-     * @param button        botao a ser verificado
-     * @return              true caso o botão tenha algum texto escrito
+     * @param button botao a ser verificado
+     * @return true caso o botão tenha algum texto escrito
      */
-    private boolean campoIsSet(Button button){
+    private boolean campoIsSet(Button button) {
         return button.getText().length() > 0;
     }
 }
