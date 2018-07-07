@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -49,7 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // aleatoriamente decide quem começa
                 if (new Random().nextBoolean()) {
                     randomJarvisMove();
-
+                    Toast.makeText(this, "Jarvis começa jogando", Toast.LENGTH_SHORT);
+                } else {
+                    Toast.makeText(this, "Você começa jogando", Toast.LENGTH_SHORT);
                 }
 
             }
@@ -58,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // aleatoriamente decide quem começa
         if (new Random().nextBoolean()) {
             randomJarvisMove();
-
+            Toast.makeText(this, "Jarvis começa jogando", Toast.LENGTH_SHORT);
+        } else {
+            Toast.makeText(this, "Você começa jogando", Toast.LENGTH_SHORT);
         }
     }
 
@@ -130,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
 
     private void randomJarvisMove() {
 
