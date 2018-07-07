@@ -125,6 +125,7 @@
             android:id="@+id/button_reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="18dp"
             android:text="Reset" />
 
         <LinearLayout
@@ -143,21 +144,15 @@
 
                 <Button
                     android:id="@+id/campos_0_0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
 
                 <Button
                     android:id="@+id/campos_0_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle"/>
 
                 <Button
                     android:id="@+id/campos_0_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -168,21 +163,15 @@
 
                 <Button
                     android:id="@+id/campos_1_0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle"/>
 
                 <Button
                     android:id="@+id/campos_1_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
 
                 <Button
                     android:id="@+id/campos_1_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -193,21 +182,15 @@
 
                 <Button
                     android:id="@+id/campos_2_0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
 
                 <Button
                     android:id="@+id/campos_2_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
 
                 <Button
                     android:id="@+id/campos_2_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    style="@style/buttonCampoStyle" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
