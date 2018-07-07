@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         // verifica se houve empate
         if (checkTie()) {
-            Snackbar.make(findViewById(R.id.root_parent_layout), "Deu velha",
+            Snackbar.make(findViewById(R.id.root_parent_layout), R.string.velha,
                     Snackbar.LENGTH_LONG).show();
             return;
         }
@@ -148,6 +148,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setButton(campos[row][col], JARVIS_SYMBOL);
     }
 
+    /**
+     *
+     * @return true se houve empate
+     */
     private boolean checkTie() {
         boolean tie = true;
         for (int i = 0; i < 3; i++) {
@@ -162,6 +166,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return tie;
     }
 
+    /**
+     *
+     * @param symbol    simbolo a ser passado
+     * @return          true caso o simbolo passado tenha fechado uma linha
+     */
     private boolean checkWinner(String symbol) {
         // verificação de vencedor
 

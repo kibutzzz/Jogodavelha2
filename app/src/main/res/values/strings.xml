@@ -5,4 +5,5 @@
     <string name="vitorias">Vitorias:</string>
     <string name="jogador_ganhou">Você ganhou o jogo</string>
     <string name="Jarvis_ganhou">Jarvis ganhou o jogo</string>
+    <string name="velha">Deu velha</string>
 </resources>
