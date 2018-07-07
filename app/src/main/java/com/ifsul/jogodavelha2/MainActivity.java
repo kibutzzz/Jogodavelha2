@@ -46,12 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         campos[i][j].setEnabled(true);
                     }
                 }
+                // aleatoriamente decide quem começa
+                if (new Random().nextBoolean()) {
+                    randomJarvisMove();
+
+                }
 
             }
         });
 
-        //TODO aleatoriamente decide quem começa
+        // aleatoriamente decide quem começa
         if (new Random().nextBoolean()) {
+            randomJarvisMove();
 
         }
     }
@@ -88,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         //verifica se houve empate
-        if (checkTie()){
+        if (checkTie()) {
             Snackbar.make(findViewById(R.id.root_parent_layout), "Deu velha",
                     Snackbar.LENGTH_LONG).show();
             return;
@@ -104,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setButton(campos[defenseMove.getRow()][defenseMove.getCol()], JARVIS_SYMBOL);
         } else {
             //TODO jogada aleatoria com verificação repetição caso campos estejam preenchidos
+            randomJarvisMove();
 
 
         }
@@ -116,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         // verifica se houve empate
-        if (checkTie()){
+        if (checkTie()) {
             Snackbar.make(findViewById(R.id.root_parent_layout), "Deu velha",
                     Snackbar.LENGTH_LONG).show();
             return;
@@ -124,11 +131,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void randomJarvisMove() {
+
+        int row;
+        int col;
+        boolean foundFreePosition = false;
+        do {
+            Random r = new Random();
+            row = r.nextInt(3);
+            col = r.nextInt(3);
+
+            if (campos[row][col].isEnabled()) foundFreePosition = true;
+
+        } while (!foundFreePosition);
+
+        setButton(campos[row][col], JARVIS_SYMBOL);
+    }
+
     private boolean checkTie() {
         boolean tie = true;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (campos[i][j].isEnabled()){
+                if (campos[i][j].isEnabled()) {
                     tie = false;
                     break;
                 }
