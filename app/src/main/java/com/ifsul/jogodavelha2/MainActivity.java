@@ -61,6 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button.setEnabled(false);
     }
 
+    private void enableAllButtons(boolean b) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++){
+                campos[i][j].setEnabled(b);
+            }
+        }
+    }
+
     @Override
     public void onClick(View view) {
         // jogador
