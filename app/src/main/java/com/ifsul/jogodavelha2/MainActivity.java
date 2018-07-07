@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // aleatoriamente decide quem começa
                 if (new Random().nextBoolean()) {
                     randomJarvisMove();
-                    Toast.makeText(this, "Jarvis começa jogando", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), R.string.jarvis_comeca, Toast.LENGTH_SHORT);
                 } else {
-                    Toast.makeText(this, "Você começa jogando", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), R.string.voce_comeca, Toast.LENGTH_SHORT);
                 }
 
             }
@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // aleatoriamente decide quem começa
         if (new Random().nextBoolean()) {
             randomJarvisMove();
-            Toast.makeText(this, "Jarvis começa jogando", Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.jarvis_comeca, Toast.LENGTH_SHORT);
         } else {
-            Toast.makeText(this, "Você começa jogando", Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.voce_comeca, Toast.LENGTH_SHORT);
         }
     }
 

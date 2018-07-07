@@ -6,4 +6,6 @@
     <string name="jogador_ganhou">Você ganhou o jogo</string>
     <string name="Jarvis_ganhou">Jarvis ganhou o jogo</string>
     <string name="velha">Deu velha</string>
+    <string name="jarvis_comeca">Jarvis começa jogando</string>
+    <string name="voce_comeca">Você começa jogando</string>
 </resources>
