@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //verifica se o jogador ganhou
         if (checkWinner(PLAYER_SYMBOL)) {
             enableAllButtons(false);
-            Snackbar.make(findViewById(R.id.root_parent_layout),
-                   R.string.jogador_ganhou , Snackbar.LENGTH_LONG).show();
+            Snackbar.make(findViewById(R.id.root_parent_layout), R.string.jogador_ganhou,
+                    Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // verifica se o Jarvis ganhou
         if (checkWinner(JARVIS_SYMBOL)) {
             enableAllButtons(false);
+            Snackbar.make(findViewById(R.id.root_parent_layout), getString(R.string.Jarvis_ganhou),
+                    Snackbar.LENGTH_LONG).show();
             return;
         }
 
