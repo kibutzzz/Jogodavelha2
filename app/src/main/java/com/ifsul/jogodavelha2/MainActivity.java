@@ -78,9 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // aleatoriamente decide quem começa
                 if (new Random().nextBoolean()) {
                     randomJarvisMove();
-                    Toast.makeText(getApplicationContext(), R.string.jarvis_comeca, Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), R.string.jarvis_comeca, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), R.string.voce_comeca, Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), R.string.voce_comeca, Toast.LENGTH_SHORT).show();
                 }
                 updateGameStats();
             }
@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // aleatoriamente decide quem começa
         if (new Random().nextBoolean()) {
             randomJarvisMove();
-            Toast.makeText(this, R.string.jarvis_comeca, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.jarvis_comeca, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, R.string.voce_comeca, Toast.LENGTH_SHORT);
+            Toast.makeText(this, R.string.voce_comeca, Toast.LENGTH_SHORT).show();
         }
         updateGameStats();
     }

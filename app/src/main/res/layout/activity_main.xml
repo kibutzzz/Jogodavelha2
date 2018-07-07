@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="4dp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -30,7 +31,7 @@
 
                 <TextView
                     android:id="@+id/text_view_total_jogos"
-                    style="@style/TextViewDefault"
+                    style="@style/TextViewDefaultResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -47,7 +48,7 @@
 
                 <TextView
                     android:id="@+id/text_view_jogadas"
-                    style="@style/TextViewDefault"
+                    style="@style/TextViewDefaultResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -72,7 +73,7 @@
 
                 <TextView
                     android:id="@+id/text_view_total_vitorias"
-                    style="@style/TextViewDefault"
+                    style="@style/TextViewDefaultResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -89,7 +90,7 @@
 
                 <TextView
                     android:id="@+id/text_view_total_derrotas"
-                    style="@style/TextViewDefault"
+                    style="@style/TextViewDefaultResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -106,7 +107,7 @@
 
                 <TextView
                     android:id="@+id/text_view_total_empates"
-                    style="@style/TextViewDefault"
+                    style="@style/TextViewDefaultResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -126,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:text="Reset" />
+            android:text="@string/recomecar" />
 
         <LinearLayout
             android:layout_width="match_parent"

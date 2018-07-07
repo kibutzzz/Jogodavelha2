@@ -11,4 +11,5 @@
     <string name="voce_comeca">Você começa jogando</string>
     <string name="jogadas">Jogadas:</string>
     <string name="empates">empates:</string>
+    <string name="recomecar">Recomecar</string>
 </resources>
