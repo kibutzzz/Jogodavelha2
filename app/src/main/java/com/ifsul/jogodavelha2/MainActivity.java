@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "DEBUG";
     private static final String PLAYER_SYMBOL = "X";
@@ -48,7 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        //TODO aleatoriamente decide quem começa
+        if (new Random().nextBoolean()) {
 
+        }
     }
 
     /**
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void enableAllButtons(boolean b) {
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++){
+            for (int j = 0; j < 3; j++) {
                 campos[i][j].setEnabled(b);
             }
         }
@@ -82,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Snackbar.LENGTH_LONG).show();
             return;
         }
+        //verifica se houve empate
+        if (checkTie()){
+            Snackbar.make(findViewById(R.id.root_parent_layout), "Deu velha",
+                    Snackbar.LENGTH_LONG).show();
+            return;
+        }
 
 
         //jarvis
@@ -94,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             //TODO jogada aleatoria com verificação repetição caso campos estejam preenchidos
 
+
         }
 
         // verifica se o Jarvis ganhou
@@ -103,7 +115,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Snackbar.LENGTH_LONG).show();
             return;
         }
+        // verifica se houve empate
+        if (checkTie()){
+            Snackbar.make(findViewById(R.id.root_parent_layout), "Deu velha",
+                    Snackbar.LENGTH_LONG).show();
+            return;
+        }
 
+    }
+
+    private boolean checkTie() {
+        boolean tie = true;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (campos[i][j].isEnabled()){
+                    tie = false;
+                    break;
+                }
+            }
+        }
+
+        return tie;
     }
 
     private boolean checkWinner(String symbol) {
